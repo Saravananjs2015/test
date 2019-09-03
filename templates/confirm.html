@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+h2{
+border-style: solid;
+border-width: medium;
+width: 370px;
+text-align: center;
+border-radius: 10px;
+background-color: blue;
+color: white;
+margin-left: 450px;
+}	
+.content {
+border-style: solid;
+border-width: medium;
+width: 370px;
+border-radius: 10px;
+background-color: #eee;
+color: black;
+margin-left: 450px;
+}
+.content p{
+	margin-left: 10px;
+	font-size: 12px;
+}
+a{
+padding: 12px 80px;
+font-size: 14px;
+font-weight: bolder;
+}
+
+</style>
+</head>
+<body>
+<h2>Confirm Your Registration Below</h2>
+<div class="content">
+<p>Name: <b>{{ fname }} {{midname}} {{lastname}}</b></p>
+<p>{{ fname }} {{midname}} {{lastname}}</p>
+<p>CRD# {{crd}}</p>
+<br/>
+<p>Broker Regulated By <b>FINRA</b></p>
+<p><b>{{firm_name}}</b></p>
+<p>CRD# {{firm_crd}}</p>
+<p>{{city}} {{state}} {{bzip}}</p>
+<br/>
+<b><p>{{disclosure}} Disclousures</p><br/>
+<p> Years of experience</p><br/>
+<p>{{firm_count}} firms</p><br/>
+<p> Exams Passed</p><br/>
+<p>{{lcount}} License</p></b>
+
+</div>
+<a href="{% url 'acverify' %}" name="yes" style="margin-left: 450px; margin-top: 20px;background-color: green; color: white; ">YES</a>
+<a href="{% url 'index' %}" name="no" Value="NO" style="background-color: red; color: white; ">NO</a>
+</body>
+</html>

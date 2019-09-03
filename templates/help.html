@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Retirement Wisdom</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+body{
+margin: 0;
+font-family: 'Times New Roman','Times', 'serif';
+}
+.header {
+height: 50px;
+padding-bottom: 50px;
+}
+.header p{
+font-size: 35px;
+color: mediumblue;
+font-weight: bolder;
+}
+.header a{
+margin-top: 45px;
+text-decoration: none;
+font-weight: bold;
+margin-right: 10px
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: mediumblue;
+  position: fixed;
+  top: 100px;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.content-title{
+font-weight: bold;
+font-size: 20px;
+color: mediumblue;
+}
+.rectangle {
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: mediumblue;
+  margin: 10px;
+
+}
+
+</style>
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+<!--<p style="float: left;">Retirement Wisdom</p>-->
+
+<img src="{% static 'banner.jpg' %}">
+<div class="social" style="float: right;">
+<a href="#"><i class="fa fa-facebook" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-instagram" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-linkedin" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-twitter" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+</div>
+<!--<a href="{% url 'catagory' %}" style="float: right; margin-top: 40px;">{% if name %} {{name}} <a href="#" style="float: right;">Show My Profile</a>
+{% else %} Log In or Register {% endif %}</a>-->
+</div>
+<!-- Nav bar -->
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#dash">My Dashboard</a>
+  <a href="#webcast">Webcasts</a>
+  <a href="#plan">Plan Database</a>
+  <a href="#digits">Significant Digits</a>
+  {% if name %}
+  <a hre="{% url 'help' %}" style="float: right"><i class="fa fa-question-circle" style="font-size:24px"></i> Help</a>
+  <a href="{% url 'profile' %}" style="float: right;"><i class="fa fa-user" style="font-size:24px"></i> Profile</a>
+  {% else %} 
+  <a href="#" style="float: right;"><i class="fa fa-question-circle" style="font-size:24px;"></i> Help</a>
+  <a href="{% url 'catagory' %}" style="float: right;"><i class="fa fa-user" style="font-size:24px"></i> Register </a>
+  {% endif %}
+
+  <!--<div class="search-container">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="search">
+ 	</form>
+  </div>-->
+</div><br/><br/><br/>
+<!-- Content -->
+<div>
+<p style="background-color: #ddd; padding-left: 25px; font-size: 32px; margin-left: 10px; margin-right: 10px; margin-top: 25px;">
+<i class="fa fa-question-circle" style="font-size:32px;"></i> Help
+</p>
+<h1 style="margin: 10px;"> Need a Tutorial?</h1>
+<p style="margin: 10px; font-size: 20px;"> This brief tutorial will introduce you to Retirement Wisdom and all it has to offer</p>  
+<div class="rectangle"><a href="#" style="text-decoration: none;"><p style="padding-top: 12px; padding-left: 40px; font-size: 20px; color: white">Watch Video</p></a></div>
+<h1 style="margin: 10px;"> Still Need Help?</h1>
+<p style="margin: 10px; font-size: 20px; padding-top: 15px;"> For all outstanding questions or concerns, please send an email to <a href="">info@retirementwisdom.com</a> and we will respond to you in a timely fashion</p>  
+
+</div>
+</body>
+</html>

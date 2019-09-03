@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+table {
+background-color: blue;
+color: white;
+margin-left: 420px;
+}
+
+input ,select {
+width: 300px;
+height: 25px;
+border-radius: 5px;
+}
+
+td{
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+{% block javascript %}	
+<script type="text/javascript">
+function check_user(){
+var data=document.getElementById('auname').value;
+		var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            	data=JSON.parse(this.responseText);
+				if(data.is_taken){
+					alert("User name already Taken");
+					document.getElementById('auname').value="";}
+            }
+        };
+        xmlhttp.open("GET", "validate_user?uname="+data, true);
+        xmlhttp.send();
+}
+</script>
+{% endblock %}
+
+<h1 align="center" style="color: blue">Enter Your Details</h1>
+
+<form action="{% url 'asstForm' %}" method="POST">{% csrf_token %}
+<table>
+<tr><td>
+<label for="firstname"><b>Full First Name</b></label><td>
+<input type="text" name="afname" placeholder="First Name" required></tr>
+
+<tr><td><label for="nickname"><b>Nick Name</b></label><td>
+<input type="text" name="anname" placeholder="Nick Name"></tr>
+
+<tr><td><label for="surname"><b>SurName</b></label><td>
+<input type="text" name="asname" placeholder="Surname" required></tr>
+
+<tr><td><label for="cname"><b>Company Name</b></label><td>
+<select name="acname" required>
+{% for row in compname %}
+<option>{{ row }}</option>
+{% endfor %}
+</select></tr>
+
+<tr><td><label for="city"><b>Office City & State Name</b></label><td>
+<select name="acityname"  required>
+{% for row in ciname %}
+<option>{{ row }}</option>
+{% endfor %}
+</select></tr>
+
+<tr><td><label for="email"><b>Work Email</b></label><td>
+<input type="email" name="aemail" placeholder="Work Email" required></tr>
+
+<tr><td><label for="phone"><b>Work Phone</b></label><td>
+<input type="text" name="aphone" placeholder="Work Phone" required></tr>
+
+<tr><td><label for="uname"><b>User Name</b></label><td>
+<input type="text" name="auname" placeholder="User Name" id="auname" onblur="check_user();" required></tr>
+
+<tr><td><label for="psw"><b>Password</b></label><td>
+<input type="password" name="apsw" placeholder="Password" required></tr>
+
+<tr><td><label for="psw-rpt"><b>Repeat Password</b></label><td>
+<input type="password" name="apswrpt" placeholder="Repeat Password" required></tr>
+
+<tr><td colspan="2" align="center"><input type="submit" name="search" value="Register Account"></tr>
+
+</table>
+</form>
+</body>
+</html>

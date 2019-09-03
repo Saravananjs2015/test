@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+margin: 0;
+font-family: 'Times New Roman','Times', 'serif';
+}
+.header {
+height: 50px;
+padding-bottom: 50px;
+}
+.header p{
+font-size: 35px;
+color: mediumblue;
+font-weight: bolder;
+}
+.header a{
+margin-top: 45px;
+text-decoration: none;
+font-weight: bold;
+margin-right: 10px
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: mediumblue;
+  position: fixed;
+  top: 100px;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+p.two {
+  text-align: center;
+  border-style: solid;
+  border-width: medium;
+  width: 200px;
+  height: 250px;
+  border-color: blue;
+  background-color: blue;
+  border-radius: 20px;
+ 
+}
+
+p.two a{
+margin-top:200px;
+text-decoration: none;
+color: white;
+font-size: 35px;
+font-weight: bold;
+
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+<!--<p style="float: left;">Retirement Wisdom</p>-->
+
+<img src="{% static 'banner.jpg' %}">
+<div class="social" style="float: right;">
+<a href="#"><i class="fa fa-facebook" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-instagram" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-linkedin" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+<a href="#"><i class="fa fa-twitter" style="font-size:32px;padding-right: 10px;color: black"></i></a>
+</div>
+<!--<a href="{% url 'catagory' %}" style="float: right; margin-top: 40px;">{% if name %} {{name}} <a href="#" style="float: right;">Show My Profile</a>
+{% else %} Log In or Register {% endif %}</a>-->
+</div>
+<!-- Nav bar -->
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#dash">My Dashboard</a>
+  <a href="#webcast">Webcasts</a>
+  <a href="#plan">Plan Database</a>
+  <a href="#digits">Significant Digits</a>
+  {% if name %}
+  <a href="{% url 'help' %}" style="float: right"><i class="fa fa-question-circle" style="font-size:24px"></i> Help</a>
+  <a href="{% url 'profile' %}" style="float: right;"><i class="fa fa-user" style="font-size:24px"></i> Profile</a>
+  {% else %} 
+  <a href="{% url 'help' %}" style="float: right;"><i class="fa fa-question-circle" style="font-size:24px;"></i> Help</a>
+  <a href="{% url 'catagory' %}" style="float: right;"><i class="fa fa-user" style="font-size:24px"></i> Register </a>
+  {% endif %}
+
+  <!--<div class="search-container">
+    <form action="#">
+      <input type="text" placeholder="Search.." name="search">
+ 	</form>
+  </div>-->
+</div><br/><br/><br/>
+
+<h1 align="center" style="color: blue">Select Your Account Catagory</h1>
+<p class="two" style="float: left; margin-left: 300px;"><a href="{% url 'finadv' %}">Licensed Financial Advisor</a></p>
+<p class="two" style="float: left; margin-left: 50px;"><a href="{% url 'investPro' %}">Investment Professional</a></p>
+<p class="two" style="float: left; margin-left: 50px;"><a href="{% url 'asstMan' %}">Asst Manager</a></p>
+
+</body>
+</html>
